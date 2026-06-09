@@ -132,22 +132,67 @@ export const manual: Manual = {
     },
     {
       id: 4,
-      title: "Épreuve 4",
+      title: "Chronomètre",
       imagePath: null,
       instructions: {
-        intro: "À renseigner",
-        steps: [],
-        warnings: [],
+        intro:
+          "Le joueur voit un chronomètre dont l'aiguille tourne en boucle de 0 à 60 secondes. " +
+          "Une diode colorée est visible à côté. " +
+          "Déterminez la zone d'arrêt en vérifiant les conditions dans l'ordre, " +
+          "puis indiquez-la au joueur avant qu'il stoppe l'aiguille.",
+        steps: [
+          {
+            step: 1,
+            text: "Relevez la couleur de la diode et le nombre de modules déjà résolus sur le panneau",
+          },
+          {
+            step: 2,
+            text: "Appliquez la première condition vérifiée :",
+            subSteps: [
+              "Diode rouge ET ≥ 2 modules résolus → arrêter entre 42 et 44 s",
+              "Diode verte → arrêter entre 22 et 24 s",
+              "Diode orange ET 0 module résolu → arrêter entre 5 et 7 s",
+              "Diode orange → arrêter entre 32 et 34 s",
+              "Nombre de modules résolus impair → arrêter entre 12 et 14 s",
+              "Diode bleue → arrêter entre 52 et 54 s",
+              "Diode blanche → arrêter entre 32 et 34 s",
+              "Sinon → arrêter entre 12 et 14 s",
+            ],
+          },
+        ],
+        warnings: [
+          "Un module ne compte comme résolu que si sa validation est confirmée — pas en cours de résolution",
+          "Ce module peut être résolu en dernier pour maximiser le nombre de modules résolus connus",
+        ],
       },
     },
     {
       id: 5,
-      title: "Épreuve 5",
+      title: "Interrupteurs",
       imagePath: null,
       instructions: {
-        intro: "À renseigner",
-        steps: [],
-        warnings: [],
+        intro:
+          "Le joueur voit un panneau de 4 à 6 interrupteurs à positionner correctement (haut = ON, bas = OFF). " +
+          "La configuration dépend des modules encore actifs (non résolus) et du nombre de caractères du numéro de série. " +
+          "Appliquez la première condition vérifiée.",
+        steps: [
+          {
+            step: 1,
+            text: "Appliquez la première condition vérifiée :",
+            subSteps: [
+              "Condition 1 — Module Coupe-fils présent ET module Molette présent ET numéro de série > 6 caractères → activer les interrupteurs de position impaire (1er, 3e, 5e)",
+              "Condition 2 — Module Décodage présent ET module Chronomètre absent → activer uniquement le 1er interrupteur",
+              "Condition 3 — Nombre total de modules sur le plateau ≥ 4 ET numéro de série avec un nombre pair de caractères → activer les interrupteurs de position paire (2e, 4e, 6e)",
+              "Condition 4 — Module Chronomètre présent ET module Coupe-fils absent → activer tous les interrupteurs sauf le dernier",
+              "Condition 5 — Nombre total de modules sur le plateau ≤ 3 → activer uniquement le dernier interrupteur",
+              "Sinon → activer le 1er et le dernier interrupteur uniquement",
+            ],
+          },
+        ],
+        warnings: [
+          "Tout interrupteur non mentionné dans la configuration doit être en position basse (OFF)",
+          "La présence d'un module se vérifie au début de la partie — elle ne change pas en cours de jeu",
+        ],
       },
     },
   ],
