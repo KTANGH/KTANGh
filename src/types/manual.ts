@@ -7,17 +7,17 @@ export type InstructionStep = {
 export type Trial = {
   id: number
   title: string
-  imagePath: string | null  // null until image is provided
+  imagePath: string | null
   instructions: {
     intro?: string
     steps: InstructionStep[]
     warnings?: string[]
-    timeLimit?: number  // seconds
   }
 }
 
 export type Manual = {
   title: string
   version: string
+  globalTimeLimit: number  // secondes — compte à rebours unique pour toute la partie
   trials: Trial[]
 }

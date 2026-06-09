@@ -3,6 +3,7 @@ import type { Manual } from "@/types/manual"
 export const manual: Manual = {
   title: "Keep Talking and Nobody Explodes — Manuel de l'Expert",
   version: "1.0",
+  globalTimeLimit: 300,  // 5 minutes pour compléter tous les modules
   trials: [
     {
       id: 1,
@@ -11,7 +12,6 @@ export const manual: Manual = {
       instructions: {
         intro:
           "Le joueur fait face à un panneau comportant entre 3 et 6 fils colorés (blanc, rouge, vert, jaune, bleu). " +
-          "Demandez-lui de décrire les fils de gauche à droite. " +
           "Appliquez les règles dans l'ordre indiqué — la première règle vérifiée détermine le fil à couper. " +
           "Arrêtez-vous dès qu'une règle s'applique.",
         steps: [
@@ -41,17 +41,32 @@ export const manual: Manual = {
           "Vérifiez chaque condition entièrement avant de passer à la règle suivante",
           "Ne coupez qu'un seul fil — une erreur déclenche la bombe immédiatement",
         ],
-        timeLimit: 60,
       },
     },
     {
       id: 2,
-      title: "Épreuve 2",
+      title: "Molette de fréquence",
       imagePath: null,
       instructions: {
-        intro: "À renseigner",
-        steps: [],
-        warnings: [],
+        intro: "Molette à régler sur une fréquence en Hz selon le code de série (visible en haut à gauche de l'écran du joueur). Appliquer la première règle vérifiée.",
+        steps: [
+          {
+            step: 1,
+            text: "Règles (dans l'ordre — s'arrêter à la première vérifiée) :",
+            subSteps: [
+              "Somme des chiffres du code > 14 → 440 Hz",
+              "Dernier caractère du code = lettre → 330 Hz",
+              "Une même lettre apparaît au moins 2 fois dans le code → 280 Hz",
+              "Nombre de chiffres dans le code = impair → 220 Hz",
+              "Premier caractère du code = chiffre → 180 Hz",
+              "Le code contient au moins une voyelle (A, E, I, O, U, Y) → 150 Hz",
+              "Sinon → 100 Hz",
+            ],
+          },
+        ],
+        warnings: [
+          "Voyelles prises en compte : A, E, I, O, U, Y uniquement",
+        ],
       },
     },
     {
