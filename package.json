@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "screenshot": "bun screenshot.mjs"
   },
   "dependencies": {
     "next": "16.2.7",
@@ -17,6 +18,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "playwright": "^1.60.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   },
