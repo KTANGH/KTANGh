@@ -4,8 +4,8 @@ import { useState } from "react"
 import { manual } from "@/data/manual"
 import type { Trial } from "@/types/manual"
 
-const PAGE_W = 380
-const PAGE_H = 540
+const PAGE_W = 560
+const PAGE_H = 780
 
 // ─── Page primitives ──────────────────────────────────────────────────────────
 
@@ -93,7 +93,7 @@ function Cover({ onOpen }: { onOpen: () => void }) {
           className="w-full h-full flex flex-col items-center justify-center relative transition-transform duration-200 group-hover:scale-[1.01]"
           style={{
             background: "linear-gradient(150deg, #2e1a0e 0%, #4a2810 55%, #2e1a0e 100%)",
-            boxShadow: "6px 6px 40px rgba(0,0,0,0.7), inset -4px 0 16px rgba(0,0,0,0.35)",
+            boxShadow: "8px 12px 60px rgba(0,0,0,0.85), 20px 20px 80px rgba(0,0,0,0.5), inset -6px 0 20px rgba(0,0,0,0.45)",
             borderRadius: "0 4px 4px 0",
           }}
         >
@@ -170,7 +170,7 @@ function OpenBook() {
             height: PAGE_H,
             position: "relative",
             perspective: "2500px",
-            boxShadow: "0 25px 70px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.03)",
+            boxShadow: "0 40px 100px rgba(0,0,0,0.9), 0 20px 40px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04), inset 0 1px 0 rgba(255,255,255,0.08)",
           }}
         >
           {/* Background left page */}
@@ -238,7 +238,7 @@ function OpenBook() {
               pointerEvents: "none",
               zIndex: 4,
               background:
-                "linear-gradient(to right, transparent 44%, rgba(0,0,0,0.05) 47%, rgba(0,0,0,0.18) 50%, rgba(0,0,0,0.05) 53%, transparent 56%)",
+                "linear-gradient(to right, rgba(0,0,0,0.03) 0%, transparent 8%, transparent 42%, rgba(0,0,0,0.07) 46%, rgba(0,0,0,0.22) 50%, rgba(0,0,0,0.07) 54%, transparent 58%, transparent 92%, rgba(0,0,0,0.03) 100%)",
             }}
           />
         </div>
