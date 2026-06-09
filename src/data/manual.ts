@@ -71,12 +71,63 @@ export const manual: Manual = {
     },
     {
       id: 3,
-      title: "Épreuve 3",
+      title: "Décodage",
       imagePath: null,
       instructions: {
-        intro: "À renseigner",
-        steps: [],
-        warnings: [],
+        intro:
+          "Le joueur reçoit une suite de caractères encodée représentant un mot français existant (4 à 10 lettres). " +
+          "Déterminez la méthode de décodage en vérifiant les conditions ci-dessous dans l'ordre, " +
+          "puis dictez au joueur la méthode à appliquer lettre par lettre.",
+        steps: [
+          {
+            step: 1,
+            text: "Sélection de la méthode (première condition vérifiée) :",
+            subSteps: [
+              "Condition 1 — La réponse du module Molette était ≥ 300 Hz → Méthode B",
+              "Condition 2 — Le dernier fil coupé dans le module Coupe-fils était rouge → Méthode C",
+              "Condition 3 — Le numéro de série se termine par un chiffre impair → Méthode A",
+              "Condition 4 — Le numéro de série contient au moins 2 voyelles (A, E, I, O, U, Y) → Méthode D",
+              "Sinon → Méthode C",
+            ],
+          },
+          {
+            step: 2,
+            text: "Méthode A — Décalage −3 : soustraire 3 à chaque lettre",
+            subSteps: [
+              "D→A  E→B  F→C  G→D  H→E  I→F  J→G  K→H  L→I  M→J  N→K  O→L  P→M",
+              "Q→N  R→O  S→P  T→Q  U→R  V→S  W→T  X→U  Y→V  Z→W  A→X  B→Y  C→Z",
+              "Exemple : FKDW → CHAT",
+            ],
+          },
+          {
+            step: 3,
+            text: "Méthode B — Miroir : remplacer chaque lettre par son symétrique dans l'alphabet",
+            subSteps: [
+              "A↔Z  B↔Y  C↔X  D↔W  E↔V  F↔U  G↔T  H↔S  I↔R  J↔Q  K↔P  L↔O  M↔N",
+              "Exemple : XSZG → CHAT",
+            ],
+          },
+          {
+            step: 4,
+            text: "Méthode C — Inversion : lire le code de droite à gauche",
+            subSteps: [
+              "Exemple : TAHC → CHAT",
+            ],
+          },
+          {
+            step: 5,
+            text: "Méthode D — Décalage +5 : ajouter 5 à chaque lettre",
+            subSteps: [
+              "A→F  B→G  C→H  D→I  E→J  F→K  G→L  H→M  I→N  J→O  K→P  L→Q  M→R",
+              "N→S  O→T  P→U  Q→V  R→W  S→X  T→Y  U→Z  V→A  W→B  X→C  Y→D  Z→E",
+              "Exemple : XCVO → CHAT",
+            ],
+          },
+        ],
+        warnings: [
+          "Le résultat doit toujours être un mot français intelligible — si ce n'est pas le cas, vérifiez la condition sélectionnée",
+          "Les modules Coupe-fils et Molette doivent être résolus avant ce module si leurs conditions sont invoquées",
+        ],
       },
     },
     {
